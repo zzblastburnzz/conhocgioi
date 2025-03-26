@@ -169,3 +169,23 @@ function checkQuizAnswer(answer) {
 }
 
 // Event Listeners tiếp tục bên dưới... (đã có từ trước)
+// Sự kiện khi bấm nút "Vào học nào"
+document.getElementById("submit-name").addEventListener("click", () => {
+  const name = document.getElementById("name-input").value.trim();
+  if (name !== "") {
+    localStorage.setItem("name", name);
+    userName = name;
+
+    document.getElementById("name-input-screen").classList.add("hidden");
+    document.getElementById("welcome-text").innerText = translations[lang].welcome.replace('{{name}}', userName);
+    document.getElementById("welcome-screen").classList.remove("hidden");
+  } else {
+    alert("Bạn vui lòng nhập tên trước khi bắt đầu nhé!");
+  }
+});
+
+// Khi bấm nút "Bắt đầu học" → vào menu chính
+document.getElementById("start-learning").addEventListener("click", () => {
+  document.getElementById("welcome-screen").classList.add("hidden");
+  document.getElementById("main-menu").classList.remove("hidden");
+});
