@@ -69,3 +69,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+const alphabetData = [
+  { letter: "A", word: "Áo", image: "assets/words/ao.png", audio: "audio/vi/a.mp3" },
+  { letter: "B", word: "Bò", image: "assets/words/bo.png", audio: "audio/vi/b.mp3" },
+  { letter: "C", word: "Cá", image: "assets/words/ca.png", audio: "audio/vi/c.mp3" },
+  { letter: "D", word: "Đèn", image: "assets/words/den.png", audio: "audio/vi/d.mp3" },
+  { letter: "E", word: "Ếch", image: "assets/words/ech.png", audio: "audio/vi/e.mp3" }
+  // … thêm tiếp nếu muốn đủ A → Z
+];
+let currentAlphabetIndex = 0;
+function showAlphabet() {
+  const data = alphabetData[currentAlphabetIndex];
+  document.getElementById("alphabet-letter").innerText = data.letter;
+  document.getElementById("alphabet-word").innerText = `${data.letter} là chữ đầu trong từ "${data.word}"`;
+  document.getElementById("alphabet-image").src = data.image;
+  document.getElementById("listen-button").onclick = () => playAudio(data.audio);
+}
+
+document.getElementById("next-button").addEventListener("click", () => {
+  currentAlphabetIndex = (currentAlphabetIndex + 1) % alphabetData.length;
+  showAlphabet();
+});
+
+function playAudio(src) {
+  const audio = new Audio(src);
+  audio.play();
+}
