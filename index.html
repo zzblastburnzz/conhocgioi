@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Con Học Giỏi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-500">
+  <div id="app" class="min-h-screen flex flex-col items-center justify-center p-4">
+    <!-- Language Toggle -->
+    <div class="absolute top-4 right-4">
+      <button id="toggle-lang" class="bg-blue-500 text-white px-4 py-2 rounded">EN</button>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="absolute top-4 left-4">
+      <button id="toggle-dark-mode" class="bg-gray-500 text-white px-4 py-2 rounded">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+
+    <!-- Name Input Screen -->
+    <div id="name-input-screen" class="text-center">
+      <img src="assets/bon/bon_chao.svg" alt="Bon waving" class="mx-auto mb-4" width="200" height="200" />
+      <p id="greeting-text" class="text-xl mb-4">Chào bạn! Bạn tên là gì nhỉ?</p>
+      <input id="name-input" type="text" class="border p-2 rounded mb-4" placeholder="Nhập tên của bạn..." />
+      <button id="submit-name" class="bg-green-500 text-white px-4 py-2 rounded">Vào học nào!</button>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="hidden text-center">
+      <img src="assets/bon/bon_vui.svg" alt="Bon smiling" class="mx-auto mb-4" width="200" height="200" />
+      <p id="welcome-text" class="text-xl mb-4"></p>
+      <button id="start-learning" class="bg-green-500 text-white px-4 py-2 rounded">Bắt đầu học</button>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="main-menu" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+      <button class="bg-blue-500 text-white p-4 rounded" data-section="math">Toán học</button>
+      <button class="bg-red-500 text-white p-4 rounded" data-section="alphabet">Chữ cái</button>
+      <button class="bg-yellow-500 text-white p-4 rounded" data-section="syllable">Ghép vần</button>
+      <button class="bg-green-500 text-white p-4 rounded" data-section="quiz">Bài kiểm tra</button>
+      <button class="bg-purple-500 text-white p-4 rounded" data-section="parent">Dành cho phụ huynh</button>
+    </div>
+
+    <!-- Placeholder for Section Content -->
+    <div id="section-screen" class="hidden text-center">
+      <h1 id="section-title" class="text-2xl mb-4"></h1>
+      <button id="back-to-menu" class="bg-blue-500 text-white px-4 py-2 rounded">Quay lại menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
