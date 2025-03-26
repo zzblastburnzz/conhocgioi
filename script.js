@@ -95,3 +95,19 @@ function playAudio(src) {
   const audio = new Audio(src);
   audio.play();
 }
+let currentAlphabetIndex = 0;
+
+function showAlphabet() {
+  const data = alphabetData[lang][currentAlphabetIndex];
+  document.getElementById("alphabet-letter").innerText = data.letter;
+  document.getElementById("alphabet-word").innerText =
+    lang === "vi"
+      ? `${data.letter} là chữ đầu trong từ "${data.word}"`
+      : `${data.letter} is for "${data.word}"`;
+  document.getElementById("alphabet-image").src = data.image;
+
+  document.getElementById("listen-button").onclick = () => {
+    const audio = new Audio(data.audio);
+    audio.play();
+  };
+}
